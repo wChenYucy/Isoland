@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Root.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/H1.unity
+    guid: df4edf7d812444298b9728b4a75ce294
+  - enabled: 1
+    path: Assets/Scenes/H2.unity
+    guid: 759908fd24a784b7fac24fcc4de08592
+  - enabled: 1
+    path: Assets/Scenes/H2A.unity
+    guid: fbc03bbda55434bab9da98e1b03e4a60
   m_configObjects: {}
