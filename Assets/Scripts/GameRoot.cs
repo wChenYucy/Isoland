@@ -10,6 +10,7 @@ public class GameRoot : Singleton<GameRoot>
     private InputService _inputService;
 
     private SceneSystem _sceneSystem;
+    private ItemSystem _itemSystem;
 
     protected override void Awake()
     {
@@ -34,6 +35,9 @@ public class GameRoot : Singleton<GameRoot>
         //初始化系统
         _sceneSystem = GetComponent<SceneSystem>();
         _sceneSystem.Init(_resService, _audioService, _inputService);
+
+        _itemSystem = GetComponent<ItemSystem>();
+        _itemSystem.Init(null, _audioService, _inputService);
     }
 
     private void Update()
@@ -44,17 +48,20 @@ public class GameRoot : Singleton<GameRoot>
     private void OnEnable()
     {
         _sceneSystem.Enable();
+        _itemSystem.Enable();
     }
 
     private void OnDisable()
     {
         _sceneSystem.Disable();
+        _itemSystem.Disable();
     }
 
     private void OnDestroy()
     {
         //注销系统
         _sceneSystem.Destroy();
+        _itemSystem.Destroy();
         
         // 注销服务
     }

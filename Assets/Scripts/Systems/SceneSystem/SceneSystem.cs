@@ -6,21 +6,22 @@ using UnityEngine;
 public class SceneSystem :BaseSystem
 {
     public CanvasGroup fadeWindow;
+    private Teleport clickedTeleport;
     public override void Init(ResService resService = null, AudioService audioService = null, InputService inputService = null)
     {
         base.Init(resService, audioService, inputService);
         clickedTeleport = null;
-        Debug.Log("Common System 初始化完成！");
+        Debug.Log("Scene System 初始化完成！");
     }
 
     public void Enable()
     {
-        inputService.onLeftMouseButtonClick += isTeleportClick;
+        inputService.onLeftMouseButtonClick += IsTeleportClick;
     }
 
     public void Disable()
     {
-        inputService.onLeftMouseButtonClick -= isTeleportClick;
+        inputService.onLeftMouseButtonClick -= IsTeleportClick;
     }
     
     public void Destroy()
@@ -48,9 +49,7 @@ public class SceneSystem :BaseSystem
         yield return resService.LoadSceneAsync(changedSceneName, onLoadFinishCallback);
     }
     
-
-    private Teleport clickedTeleport;
-    public void isTeleportClick(GameObject gameObject)
+    public void IsTeleportClick(GameObject gameObject)
     {
         if (gameObject.CompareTag("Teleport"))
         {
